@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Puntosmenu" table="puntosmenu" catalog="hotel">
+        <id name="idpunto" type="int">
+            <column name="idpunto" />
+            <generator class="assigned" />
+        </id>
+        <property name="descrippunto" type="string">
+            <column name="descrippunto" length="60" />
+        </property>
+        <set name="usuarioxpuntos" inverse="true">
+            <key>
+                <column name="idpunto" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Usuarioxpunto" />
+        </set>
+    </class>
+</hibernate-mapping>

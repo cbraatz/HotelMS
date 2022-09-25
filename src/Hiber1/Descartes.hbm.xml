@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Descartes" table="descartes" catalog="hotel">
+        <id name="iddescarte" type="int">
+            <column name="iddescarte" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="stockyserv" class="Hiber1.Stockyserv" fetch="select">
+            <column name="codigo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="motivodesc" class="Hiber1.Motivodesc" fetch="select">
+            <column name="idmotivo" />
+        </many-to-one>
+        <property name="fechadesc" type="date">
+            <column name="fechadesc" length="10" />
+        </property>
+        <property name="valordesc" type="java.lang.Float">
+            <column name="valordesc" precision="15" scale="3" />
+        </property>
+        <property name="cantidaddesc" type="java.lang.Float">
+            <column name="cantidaddesc" precision="15" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

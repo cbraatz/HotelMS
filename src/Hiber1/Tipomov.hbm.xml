@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Tipomov" table="tipomov" catalog="hotel">
+        <id name="idtipomov" type="int">
+            <column name="idtipomov" />
+            <generator class="assigned" />
+        </id>
+        <property name="descripconc" type="string">
+            <column name="descripconc" length="30" />
+        </property>
+        <property name="credito" type="java.lang.Character">
+            <column name="credito" length="1" />
+        </property>
+        <property name="exclusivores" type="java.lang.Character">
+            <column name="exclusivores" length="1" />
+        </property>
+        <property name="egreso" type="java.lang.Character">
+            <column name="egreso" length="1" />
+        </property>
+        <set name="movcajas" inverse="true">
+            <key>
+                <column name="idtipomov" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Movcaja" />
+        </set>
+    </class>
+</hibernate-mapping>

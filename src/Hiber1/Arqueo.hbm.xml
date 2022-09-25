@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Arqueo" table="arqueo" catalog="hotel">
+        <id name="idarq" type="int">
+            <column name="idarq" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="moneda" class="Hiber1.Moneda" fetch="select">
+            <column name="idmoneda" not-null="true" />
+        </many-to-one>
+        <many-to-one name="apeyciecaja" class="Hiber1.Apeyciecaja" fetch="select">
+            <column name="idayccaja" />
+        </many-to-one>
+        <many-to-one name="formapago" class="Hiber1.Formapago" fetch="select">
+            <column name="idforma" not-null="true" />
+        </many-to-one>
+        <property name="montoant" type="java.lang.Float">
+            <column name="montoant" precision="15" scale="3" />
+        </property>
+        <property name="montoact" type="java.lang.Float">
+            <column name="montoact" precision="15" scale="3" />
+        </property>
+        <property name="montoensis" type="java.lang.Float">
+            <column name="montoensis" precision="15" scale="3" />
+        </property>
+        <property name="cotizacion" type="java.lang.Float">
+            <column name="cotizacion" precision="15" scale="3" />
+        </property>
+    </class>
+</hibernate-mapping>

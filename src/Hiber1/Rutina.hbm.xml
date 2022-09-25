@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Rutina" table="rutina" catalog="hotel">
+        <id name="idrut" type="int">
+            <column name="idrut" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="empleado" class="Hiber1.Empleado" fetch="select">
+            <column name="idempleado" not-null="true" />
+        </many-to-one>
+        <many-to-one name="habitacion" class="Hiber1.Habitacion" fetch="select">
+            <column name="idhabit" />
+        </many-to-one>
+        <property name="hoini" type="time">
+            <column name="hoini" length="8" />
+        </property>
+        <property name="hofin" type="time">
+            <column name="hofin" length="8" />
+        </property>
+    </class>
+</hibernate-mapping>

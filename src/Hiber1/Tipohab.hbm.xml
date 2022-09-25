@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Tipohab" table="tipohab" catalog="hotel">
+        <id name="idtipoh" type="int">
+            <column name="idtipoh" />
+            <generator class="assigned" />
+        </id>
+        <property name="descripth" type="string">
+            <column name="descripth" length="30" not-null="true" />
+        </property>
+        <property name="cantadultos" type="int">
+            <column name="cantadultos" not-null="true" />
+        </property>
+        <property name="cantninos" type="int">
+            <column name="cantninos" not-null="true" />
+        </property>
+        <set name="habitacions" inverse="true">
+            <key>
+                <column name="idtipoh" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Habitacion" />
+        </set>
+    </class>
+</hibernate-mapping>

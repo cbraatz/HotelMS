@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Motivoajuste" table="motivoajuste" catalog="hotel">
+        <id name="idmoti" type="int">
+            <column name="idmoti" />
+            <generator class="assigned" />
+        </id>
+        <property name="aumenta" type="java.lang.Character">
+            <column name="aumenta" length="1" />
+        </property>
+        <property name="egreso" type="java.lang.Character">
+            <column name="egreso" length="1" />
+        </property>
+        <property name="descrimoti" type="string">
+            <column name="descrimoti" length="30" />
+        </property>
+        <set name="ajustestocks" inverse="true">
+            <key>
+                <column name="idmoti" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Ajustestock" />
+        </set>
+    </class>
+</hibernate-mapping>

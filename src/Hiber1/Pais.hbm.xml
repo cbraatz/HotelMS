@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Pais" table="pais" catalog="hotel">
+        <id name="idpais" type="int">
+            <column name="idpais" />
+            <generator class="assigned" />
+        </id>
+        <property name="descrippais" type="string">
+            <column name="descrippais" length="60" />
+        </property>
+        <set name="monedas" inverse="true">
+            <key>
+                <column name="idpais" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Moneda" />
+        </set>
+        <set name="clientes" inverse="true">
+            <key>
+                <column name="idpais" />
+            </key>
+            <one-to-many class="Hiber1.Cliente" />
+        </set>
+    </class>
+</hibernate-mapping>

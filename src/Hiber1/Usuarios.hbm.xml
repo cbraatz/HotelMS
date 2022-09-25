@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Usuarios" table="usuarios" catalog="hotel">
+        <id name="idusuario" type="int">
+            <column name="idusuario" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="empleado" class="Hiber1.Empleado" fetch="select">
+            <column name="idempleado" />
+        </many-to-one>
+        <property name="usuario" type="string">
+            <column name="usuario" length="30" not-null="true" />
+        </property>
+        <property name="pass" type="string">
+            <column name="pass" length="60" not-null="true" />
+        </property>
+        <set name="usuarioxpuntos" inverse="true">
+            <key>
+                <column name="idusuario" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Usuarioxpunto" />
+        </set>
+        <set name="varioses" inverse="true">
+            <key>
+                <column name="idusuario" />
+            </key>
+            <one-to-many class="Hiber1.Varios" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Proveedor" table="proveedor" catalog="hotel">
+        <id name="idprov" type="int">
+            <column name="idprov" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="30" />
+        </property>
+        <property name="ruc" type="string">
+            <column name="ruc" length="30" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="60" />
+        </property>
+        <property name="telefprov" type="string">
+            <column name="telefprov" length="60" />
+        </property>
+        <set name="cabcompras" inverse="true">
+            <key>
+                <column name="idprov" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Cabcompra" />
+        </set>
+    </class>
+</hibernate-mapping>

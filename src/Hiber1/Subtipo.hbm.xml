@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Subtipo" table="subtipo" catalog="hotel">
+        <id name="idsubtipo" type="int">
+            <column name="idsubtipo" />
+            <generator class="assigned" />
+        </id>
+        <property name="descsubtipo" type="string">
+            <column name="descsubtipo" length="60" />
+        </property>
+        <property name="precioxnoche" type="java.lang.Float">
+            <column name="precioxnoche" precision="15" scale="3" />
+        </property>
+        <property name="preciocorto" type="java.lang.Float">
+            <column name="preciocorto" precision="15" scale="3" />
+        </property>
+        <set name="ocupacioneses" inverse="true">
+            <key>
+                <column name="idsubtipo" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Ocupaciones" />
+        </set>
+        <set name="subreservas" inverse="true">
+            <key>
+                <column name="idsubtipo" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Subreserva" />
+        </set>
+    </class>
+</hibernate-mapping>

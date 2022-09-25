@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Ajustestock" table="ajustestock" catalog="hotel">
+        <id name="idaju" type="int">
+            <column name="idaju" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="motivoajuste" class="Hiber1.Motivoajuste" fetch="select">
+            <column name="idmoti" not-null="true" />
+        </many-to-one>
+        <many-to-one name="stockyserv" class="Hiber1.Stockyserv" fetch="select">
+            <column name="codigo" not-null="true" />
+        </many-to-one>
+        <property name="feyho" type="timestamp">
+            <column name="feyho" length="19" />
+        </property>
+        <property name="obs" type="string">
+            <column name="obs" length="60" />
+        </property>
+        <property name="cant" type="java.lang.Float">
+            <column name="cant" precision="15" scale="3" />
+        </property>
+        <property name="valor" type="java.lang.Float">
+            <column name="valor" precision="15" scale="3" />
+        </property>
+    </class>
+</hibernate-mapping>

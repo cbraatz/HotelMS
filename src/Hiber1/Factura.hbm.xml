@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Factura" table="factura" catalog="hotel">
+        <id name="idfac" type="int">
+            <column name="idfac" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="reservacion" class="Hiber1.Reservacion" fetch="select">
+            <column name="idres" />
+        </many-to-one>
+        <many-to-one name="cliente" class="Hiber1.Cliente" fetch="select">
+            <column name="idcli" />
+        </many-to-one>
+        <property name="numfac" type="string">
+            <column name="numfac" length="30" not-null="true" />
+        </property>
+        <property name="feyho" type="timestamp">
+            <column name="feyho" length="19" />
+        </property>
+        <property name="descuento" type="java.lang.Float">
+            <column name="descuento" precision="15" scale="3" />
+        </property>
+        <property name="totaliva" type="java.lang.Float">
+            <column name="totaliva" precision="15" scale="3" />
+        </property>
+        <property name="monto" type="java.lang.Float">
+            <column name="monto" precision="15" scale="3" />
+        </property>
+        <property name="emitida" type="java.lang.Character">
+            <column name="emitida" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>

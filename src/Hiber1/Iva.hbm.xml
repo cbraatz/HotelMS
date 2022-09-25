@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Iva" table="iva" catalog="hotel">
+        <id name="idiva" type="int">
+            <column name="idiva" />
+            <generator class="assigned" />
+        </id>
+        <property name="desciva" type="string">
+            <column name="desciva" length="30" />
+        </property>
+        <property name="porc" type="java.lang.Float">
+            <column name="porc" precision="7" scale="3" />
+        </property>
+        <set name="stockyservs" inverse="true">
+            <key>
+                <column name="idiva" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Stockyserv" />
+        </set>
+        <set name="varioses" inverse="true">
+            <key>
+                <column name="idiva" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Varios" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Multa" table="multa" catalog="hotel">
+        <id name="idmulta" type="int">
+            <column name="idmulta" />
+            <generator class="assigned" />
+        </id>
+        <property name="descripmul" type="string">
+            <column name="descripmul" length="30" />
+        </property>
+        <property name="precio" type="java.lang.Float">
+            <column name="precio" precision="15" scale="3" />
+        </property>
+        <property name="costo" type="java.lang.Float">
+            <column name="costo" precision="15" scale="3" />
+        </property>
+        <set name="subresxmuls" inverse="true">
+            <key>
+                <column name="idmulta" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Subresxmul" />
+        </set>
+    </class>
+</hibernate-mapping>

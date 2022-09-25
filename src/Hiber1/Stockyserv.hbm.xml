@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Stockyserv" table="stockyserv" catalog="hotel">
+        <id name="codigo" type="int">
+            <column name="codigo" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="unidadmedida" class="Hiber1.Unidadmedida" fetch="select">
+            <column name="idum" />
+        </many-to-one>
+        <many-to-one name="iva" class="Hiber1.Iva" fetch="select">
+            <column name="idiva" not-null="true" />
+        </many-to-one>
+        <property name="descri" type="string">
+            <column name="descri" length="30" />
+        </property>
+        <property name="preciocosto" type="java.lang.Float">
+            <column name="preciocosto" precision="15" scale="3" />
+        </property>
+        <property name="precioventa" type="java.lang.Float">
+            <column name="precioventa" precision="15" scale="3" />
+        </property>
+        <property name="existencia" type="java.lang.Float">
+            <column name="existencia" precision="15" scale="3" />
+        </property>
+        <property name="stockmin" type="java.lang.Float">
+            <column name="stockmin" precision="15" scale="3" />
+        </property>
+        <property name="esservicio" type="java.lang.Character">
+            <column name="esservicio" length="1" />
+        </property>
+        <property name="paraventa" type="java.lang.Character">
+            <column name="paraventa" length="1" />
+        </property>
+        <set name="detcompras" inverse="true">
+            <key>
+                <column name="codigo" />
+            </key>
+            <one-to-many class="Hiber1.Detcompra" />
+        </set>
+        <set name="descarteses" inverse="true">
+            <key>
+                <column name="codigo" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Descartes" />
+        </set>
+        <set name="stockyservxsubres" inverse="true">
+            <key>
+                <column name="codigo" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Stockyservxsubre" />
+        </set>
+        <set name="ajustestocks" inverse="true">
+            <key>
+                <column name="codigo" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Ajustestock" />
+        </set>
+    </class>
+</hibernate-mapping>

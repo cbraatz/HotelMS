@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Trabajo" table="trabajo" catalog="hotel">
+        <id name="idtrabajo" type="int">
+            <column name="idtrabajo" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="empleado" class="Hiber1.Empleado" fetch="select">
+            <column name="idempleado" not-null="true" />
+        </many-to-one>
+        <many-to-one name="habitacion" class="Hiber1.Habitacion" fetch="select">
+            <column name="idhabit" />
+        </many-to-one>
+        <property name="feyho" type="timestamp">
+            <column name="feyho" length="19" />
+        </property>
+        <property name="obs" type="string">
+            <column name="obs" length="60" />
+        </property>
+    </class>
+</hibernate-mapping>

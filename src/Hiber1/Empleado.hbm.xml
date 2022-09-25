@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Empleado" table="empleado" catalog="hotel">
+        <id name="idempleado" type="int">
+            <column name="idempleado" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cargos" class="Hiber1.Cargos" fetch="select">
+            <column name="idcargo" />
+        </many-to-one>
+        <property name="numdoc" type="string">
+            <column name="numdoc" length="30" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="30" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="apellido" length="30" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="60" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="60" />
+        </property>
+        <property name="sueldo" type="java.lang.Float">
+            <column name="sueldo" precision="15" scale="3" />
+        </property>
+        <property name="activo" type="java.lang.Character">
+            <column name="activo" length="1" />
+        </property>
+        <set name="trabajos" inverse="true">
+            <key>
+                <column name="idempleado" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Trabajo" />
+        </set>
+        <set name="usuarioses" inverse="true">
+            <key>
+                <column name="idempleado" />
+            </key>
+            <one-to-many class="Hiber1.Usuarios" />
+        </set>
+        <set name="rutinas" inverse="true">
+            <key>
+                <column name="idempleado" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Rutina" />
+        </set>
+    </class>
+</hibernate-mapping>

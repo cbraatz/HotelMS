@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Movcaja" table="movcaja" catalog="hotel">
+        <id name="idmov" type="java.lang.Integer">
+            <column name="idmov" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="moneda" class="Hiber1.Moneda" fetch="select">
+            <column name="idmoneda" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipomov" class="Hiber1.Tipomov" fetch="select">
+            <column name="idtipomov" not-null="true" />
+        </many-to-one>
+        <many-to-one name="apeyciecaja" class="Hiber1.Apeyciecaja" fetch="select">
+            <column name="idayccaja" not-null="true" />
+        </many-to-one>
+        <many-to-one name="reservacion" class="Hiber1.Reservacion" fetch="select">
+            <column name="idres" />
+        </many-to-one>
+        <many-to-one name="formapago" class="Hiber1.Formapago" fetch="select">
+            <column name="idforma" not-null="true" />
+        </many-to-one>
+        <many-to-one name="documentos" class="Hiber1.Documentos" fetch="select">
+            <column name="iddoc" />
+        </many-to-one>
+        <many-to-one name="cliente" class="Hiber1.Cliente" fetch="select">
+            <column name="idcli" />
+        </many-to-one>
+        <property name="feyhomov" type="timestamp">
+            <column name="feyhomov" length="19" />
+        </property>
+        <property name="montomov" type="java.lang.Float">
+            <column name="montomov" precision="15" scale="3" />
+        </property>
+        <property name="montogs" type="java.lang.Float">
+            <column name="montogs" precision="15" scale="0" />
+        </property>
+        <property name="numcompro" type="string">
+            <column name="numcompro" length="30" />
+        </property>
+        <property name="montogscondesc" type="java.lang.Float">
+            <column name="montogscondesc" precision="15" scale="3" />
+        </property>
+        <property name="obs" type="string">
+            <column name="obs" length="60" />
+        </property>
+    </class>
+</hibernate-mapping>

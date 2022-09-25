@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Moneda" table="moneda" catalog="hotel">
+        <id name="idmoneda" type="int">
+            <column name="idmoneda" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="pais" class="Hiber1.Pais" fetch="select">
+            <column name="idpais" not-null="true" />
+        </many-to-one>
+        <property name="moneda" type="string">
+            <column name="moneda" length="30" />
+        </property>
+        <property name="compra" type="java.lang.Float">
+            <column name="compra" precision="15" scale="3" />
+        </property>
+        <property name="venta" type="java.lang.Float">
+            <column name="venta" precision="15" scale="0" />
+        </property>
+        <set name="cajas" inverse="true">
+            <key>
+                <column name="idmoneda" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Caja" />
+        </set>
+        <set name="movcajas" inverse="true">
+            <key>
+                <column name="idmoneda" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Movcaja" />
+        </set>
+        <set name="arqueos" inverse="true">
+            <key>
+                <column name="idmoneda" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Arqueo" />
+        </set>
+        <set name="documentoses" inverse="true">
+            <key>
+                <column name="idmoneda" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Documentos" />
+        </set>
+    </class>
+</hibernate-mapping>

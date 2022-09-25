@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Reservacion" table="reservacion" catalog="hotel">
+        <id name="idres" type="int">
+            <column name="idres" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cliente" class="Hiber1.Cliente" fetch="select">
+            <column name="idcli" not-null="true" />
+        </many-to-one>
+        <property name="totalres" type="java.lang.Float">
+            <column name="totalres" precision="15" scale="3" />
+        </property>
+        <property name="totalcubierto" type="java.lang.Float">
+            <column name="totalcubierto" precision="15" scale="3" />
+        </property>
+        <property name="fechareserva" type="date">
+            <column name="fechareserva" length="10" />
+        </property>
+        <property name="fechainicio" type="date">
+            <column name="fechainicio" length="10" />
+        </property>
+        <property name="fechafin" type="date">
+            <column name="fechafin" length="10" />
+        </property>
+        <property name="confentrega" type="java.lang.Character">
+            <column name="confentrega" length="1" />
+        </property>
+        <property name="checkin" type="java.lang.Character">
+            <column name="checkin" length="1" />
+        </property>
+        <property name="checkout" type="java.lang.Character">
+            <column name="checkout" length="1" />
+        </property>
+        <property name="activa" type="java.lang.Character">
+            <column name="activa" length="1" />
+        </property>
+        <property name="descuento" type="java.lang.Float">
+            <column name="descuento" precision="15" scale="3" />
+        </property>
+        <set name="ocupacioneses" inverse="true">
+            <key>
+                <column name="idres" />
+            </key>
+            <one-to-many class="Hiber1.Ocupaciones" />
+        </set>
+        <set name="subreservas" inverse="true">
+            <key>
+                <column name="idres" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Subreserva" />
+        </set>
+        <set name="movcajas" inverse="true">
+            <key>
+                <column name="idres" />
+            </key>
+            <one-to-many class="Hiber1.Movcaja" />
+        </set>
+        <set name="facturas" inverse="true">
+            <key>
+                <column name="idres" />
+            </key>
+            <one-to-many class="Hiber1.Factura" />
+        </set>
+    </class>
+</hibernate-mapping>

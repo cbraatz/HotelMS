@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Varios" table="varios" catalog="hotel">
+        <id name="idvarios" type="int">
+            <column name="idvarios" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="usuarios" class="Hiber1.Usuarios" fetch="select">
+            <column name="idusuario" />
+        </many-to-one>
+        <many-to-one name="iva" class="Hiber1.Iva" fetch="select">
+            <column name="idiva" not-null="true" />
+        </many-to-one>
+        <property name="proxnumfac" type="string">
+            <column name="proxnumfac" length="30" />
+        </property>
+        <property name="edadnino" type="java.lang.Integer">
+            <column name="edadnino" />
+        </property>
+        <property name="cajaabierta" type="java.lang.Character">
+            <column name="cajaabierta" length="1" />
+        </property>
+        <property name="conectado" type="java.lang.Character">
+            <column name="conectado" length="1" />
+        </property>
+        <property name="diasretraso" type="java.lang.Integer">
+            <column name="diasretraso" />
+        </property>
+        <property name="poruti" type="java.lang.Float">
+            <column name="poruti" precision="7" scale="3" />
+        </property>
+        <property name="serial" type="string">
+            <column name="serial" length="20" />
+        </property>
+        <property name="puerto" type="string">
+            <column name="puerto" length="20" />
+        </property>
+    </class>
+</hibernate-mapping>

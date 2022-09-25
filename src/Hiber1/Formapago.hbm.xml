@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Formapago" table="formapago" catalog="hotel">
+        <id name="idforma" type="int">
+            <column name="idforma" />
+            <generator class="assigned" />
+        </id>
+        <property name="descripformapa" type="string">
+            <column name="descripformapa" length="30" />
+        </property>
+        <property name="tienebanco" type="java.lang.Character">
+            <column name="tienebanco" length="1" />
+        </property>
+        <property name="tienefecha" type="java.lang.Character">
+            <column name="tienefecha" length="1" />
+        </property>
+        <property name="tienenumero" type="java.lang.Character">
+            <column name="tienenumero" length="1" />
+        </property>
+        <property name="pordesc" type="java.lang.Float">
+            <column name="pordesc" precision="15" scale="3" />
+        </property>
+        <property name="sologs" type="java.lang.Character">
+            <column name="sologs" length="1" />
+        </property>
+        <set name="movcajas" inverse="true">
+            <key>
+                <column name="idforma" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Movcaja" />
+        </set>
+        <set name="arqueos" inverse="true">
+            <key>
+                <column name="idforma" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Arqueo" />
+        </set>
+        <set name="documentoses" inverse="true">
+            <key>
+                <column name="idforma" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Documentos" />
+        </set>
+        <set name="cajas" inverse="true">
+            <key>
+                <column name="idforma" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Caja" />
+        </set>
+    </class>
+</hibernate-mapping>

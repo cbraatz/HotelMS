@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Cliexsub" table="cliexsub" catalog="hotel">
+        <id name="idcliexsub" type="int">
+            <column name="idcliexsub" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="subreserva" class="Hiber1.Subreserva" fetch="select">
+            <column name="idsubres" not-null="true" />
+        </many-to-one>
+        <many-to-one name="cliente" class="Hiber1.Cliente" fetch="select">
+            <column name="idcli" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

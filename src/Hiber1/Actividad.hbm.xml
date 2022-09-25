@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Actividad" table="actividad" catalog="hotel">
+        <id name="idact" type="int">
+            <column name="idact" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cliente" class="Hiber1.Cliente" fetch="select">
+            <column name="idcli" />
+        </many-to-one>
+        <property name="fechayhora" type="timestamp">
+            <column name="fechayhora" length="19" />
+        </property>
+        <property name="obs" type="string">
+            <column name="obs" length="60" />
+        </property>
+        <property name="entra" type="java.lang.Character">
+            <column name="entra" length="1" />
+        </property>
+        <property name="llave" type="java.lang.Character">
+            <column name="llave" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>

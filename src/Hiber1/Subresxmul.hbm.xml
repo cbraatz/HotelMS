@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Subresxmul" table="subresxmul" catalog="hotel">
+        <id name="id2" type="int">
+            <column name="id2" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="multa" class="Hiber1.Multa" fetch="select">
+            <column name="idmulta" not-null="true" />
+        </many-to-one>
+        <many-to-one name="subreserva" class="Hiber1.Subreserva" fetch="select">
+            <column name="idsubres" not-null="true" />
+        </many-to-one>
+        <property name="cantidad" type="java.lang.Float">
+            <column name="cantidad" precision="15" scale="3" />
+        </property>
+        <property name="precio" type="java.lang.Float">
+            <column name="precio" precision="15" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

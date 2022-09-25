@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Apeyciecaja" table="apeyciecaja" catalog="hotel">
+        <id name="idayccaja" type="java.lang.Integer">
+            <column name="idayccaja" />
+            <generator class="identity" />
+        </id>
+        <property name="feyhoape" type="timestamp">
+            <column name="feyhoape" length="19" />
+        </property>
+        <property name="feyhocie" type="timestamp">
+            <column name="feyhocie" length="19" />
+        </property>
+        <property name="result" type="java.lang.Float">
+            <column name="result" precision="15" scale="3" />
+        </property>
+        <set name="arqueos" inverse="true">
+            <key>
+                <column name="idayccaja" />
+            </key>
+            <one-to-many class="Hiber1.Arqueo" />
+        </set>
+        <set name="movcajas" inverse="true">
+            <key>
+                <column name="idayccaja" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Movcaja" />
+        </set>
+    </class>
+</hibernate-mapping>

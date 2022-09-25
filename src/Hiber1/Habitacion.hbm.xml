@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Habitacion" table="habitacion" catalog="hotel">
+        <id name="idhabit" type="int">
+            <column name="idhabit" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="estado" class="Hiber1.Estado" fetch="select">
+            <column name="Idestado" not-null="true" />
+        </many-to-one>
+        <many-to-one name="grupo" class="Hiber1.Grupo" fetch="select">
+            <column name="idgrupo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipohab" class="Hiber1.Tipohab" fetch="select">
+            <column name="idtipoh" not-null="true" />
+        </many-to-one>
+        <property name="obshab" type="string">
+            <column name="obshab" length="60" />
+        </property>
+        <property name="llave" type="java.lang.Character">
+            <column name="llave" length="1" />
+        </property>
+        <set name="trabajos" inverse="true">
+            <key>
+                <column name="idhabit" />
+            </key>
+            <one-to-many class="Hiber1.Trabajo" />
+        </set>
+        <set name="subreservas" inverse="true">
+            <key>
+                <column name="idhabit" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Subreserva" />
+        </set>
+        <set name="ocupacioneses" inverse="true">
+            <key>
+                <column name="idhabit" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Ocupaciones" />
+        </set>
+        <set name="rutinas" inverse="true">
+            <key>
+                <column name="idhabit" />
+            </key>
+            <one-to-many class="Hiber1.Rutina" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Documentos" table="documentos" catalog="hotel">
+        <id name="iddoc" type="int">
+            <column name="iddoc" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="moneda" class="Hiber1.Moneda" fetch="select">
+            <column name="idmoneda" not-null="true" />
+        </many-to-one>
+        <many-to-one name="banco" class="Hiber1.Banco" fetch="select">
+            <column name="idbanco" />
+        </many-to-one>
+        <many-to-one name="formapago" class="Hiber1.Formapago" fetch="select">
+            <column name="idforma" not-null="true" />
+        </many-to-one>
+        <property name="monto" type="java.lang.Float">
+            <column name="monto" precision="15" scale="3" />
+        </property>
+        <property name="numerodoc" type="string">
+            <column name="numerodoc" length="30" />
+        </property>
+        <property name="fechavenc" type="date">
+            <column name="fechavenc" length="10" />
+        </property>
+        <property name="obsdoc" type="string">
+            <column name="obsdoc" length="60" />
+        </property>
+        <property name="encaja" type="java.lang.Character">
+            <column name="encaja" length="1" />
+        </property>
+        <set name="movcajas" inverse="true">
+            <key>
+                <column name="iddoc" />
+            </key>
+            <one-to-many class="Hiber1.Movcaja" />
+        </set>
+    </class>
+</hibernate-mapping>

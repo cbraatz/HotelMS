@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Detcompra" table="detcompra" catalog="hotel">
+        <id name="iddetcom" type="int">
+            <column name="iddetcom" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cabcompra" class="Hiber1.Cabcompra" fetch="select">
+            <column name="idfacturacompra" not-null="true" />
+        </many-to-one>
+        <many-to-one name="stockyserv" class="Hiber1.Stockyserv" fetch="select">
+            <column name="codigo" />
+        </many-to-one>
+        <property name="precio" type="java.lang.Float">
+            <column name="precio" precision="15" scale="3" />
+        </property>
+        <property name="cantidad" type="java.lang.Float">
+            <column name="cantidad" precision="15" scale="3" />
+        </property>
+        <property name="xiva" type="java.lang.Float">
+            <column name="xiva" precision="15" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

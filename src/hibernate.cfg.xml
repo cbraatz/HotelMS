@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost/hotel</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">kegler11</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <mapping resource="Hiber1/Usuarios.hbm.xml"/>
+    <mapping resource="Hiber1/Ocupaciones.hbm.xml"/>
+    <mapping resource="Hiber1/Subtipo.hbm.xml"/>
+    <mapping resource="Hiber1/Cargos.hbm.xml"/>
+    <mapping resource="Hiber1/Usuarioxpunto.hbm.xml"/>
+    <mapping resource="Hiber1/Trabajo.hbm.xml"/>
+    <mapping resource="Hiber1/Subresxmul.hbm.xml"/>
+    <mapping resource="Hiber1/Motivodesc.hbm.xml"/>
+    <mapping resource="Hiber1/Reservacion.hbm.xml"/>
+    <mapping resource="Hiber1/Factura.hbm.xml"/>
+    <mapping resource="Hiber1/Detcompra.hbm.xml"/>
+    <mapping resource="Hiber1/Stockyserv.hbm.xml"/>
+    <mapping resource="Hiber1/Habitacion.hbm.xml"/>
+    <mapping resource="Hiber1/Iva.hbm.xml"/>
+    <mapping resource="Hiber1/Tipohab.hbm.xml"/>
+    <mapping resource="Hiber1/Grupo.hbm.xml"/>
+    <mapping resource="Hiber1/Puntosmenu.hbm.xml"/>
+    <mapping resource="Hiber1/Moneda.hbm.xml"/>
+    <mapping resource="Hiber1/Proveedor.hbm.xml"/>
+    <mapping resource="Hiber1/Cliexsub.hbm.xml"/>
+    <mapping resource="Hiber1/Movcaja.hbm.xml"/>
+    <mapping resource="Hiber1/Empresa.hbm.xml"/>
+    <mapping resource="Hiber1/Varios.hbm.xml"/>
+    <mapping resource="Hiber1/Multa.hbm.xml"/>
+    <mapping resource="Hiber1/Tipomov.hbm.xml"/>
+    <mapping resource="Hiber1/Motivoajuste.hbm.xml"/>
+    <mapping resource="Hiber1/Caja.hbm.xml"/>
+    <mapping resource="Hiber1/Formapago.hbm.xml"/>
+    <mapping resource="Hiber1/Estado.hbm.xml"/>
+    <mapping resource="Hiber1/Subreserva.hbm.xml"/>
+    <mapping resource="Hiber1/Descartes.hbm.xml"/>
+    <mapping resource="Hiber1/Unidadmedida.hbm.xml"/>
+    <mapping resource="Hiber1/Profesion.hbm.xml"/>
+    <mapping resource="Hiber1/Pais.hbm.xml"/>
+    <mapping resource="Hiber1/Documentos.hbm.xml"/>
+    <mapping resource="Hiber1/Arqueo.hbm.xml"/>
+    <mapping resource="Hiber1/Actividad.hbm.xml"/>
+    <mapping resource="Hiber1/Cabcompra.hbm.xml"/>
+    <mapping resource="Hiber1/Stockyservxsubre.hbm.xml"/>
+    <mapping resource="Hiber1/Apeyciecaja.hbm.xml"/>
+    <mapping resource="Hiber1/Tipodocumento.hbm.xml"/>
+    <mapping resource="Hiber1/Empleado.hbm.xml"/>
+    <mapping resource="Hiber1/Banco.hbm.xml"/>
+    <mapping resource="Hiber1/Ajustestock.hbm.xml"/>
+    <mapping resource="Hiber1/Cliente.hbm.xml"/>
+    <mapping resource="Hiber1/Rutina.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

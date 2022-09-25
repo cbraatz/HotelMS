@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Cabcompra" table="cabcompra" catalog="hotel">
+        <id name="idfacturacompra" type="int">
+            <column name="idfacturacompra" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="proveedor" class="Hiber1.Proveedor" fetch="select">
+            <column name="idprov" not-null="true" />
+        </many-to-one>
+        <property name="numfaccom" type="string">
+            <column name="numfaccom" length="30" not-null="true" />
+        </property>
+        <property name="fechacom" type="date">
+            <column name="fechacom" length="10" />
+        </property>
+        <property name="totaliva" type="java.lang.Float">
+            <column name="totaliva" precision="15" scale="3" />
+        </property>
+        <property name="descuento" type="java.lang.Float">
+            <column name="descuento" precision="15" scale="3" />
+        </property>
+        <property name="total" type="java.lang.Float">
+            <column name="total" precision="15" scale="3" />
+        </property>
+        <property name="contado" type="java.lang.Character">
+            <column name="contado" length="1" />
+        </property>
+        <property name="obscom" type="string">
+            <column name="obscom" length="60" />
+        </property>
+        <set name="detcompras" inverse="true">
+            <key>
+                <column name="idfacturacompra" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Detcompra" />
+        </set>
+    </class>
+</hibernate-mapping>

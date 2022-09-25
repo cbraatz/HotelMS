@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Subreserva" table="subreserva" catalog="hotel">
+        <id name="idsubres" type="int">
+            <column name="idsubres" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="subtipo" class="Hiber1.Subtipo" fetch="select">
+            <column name="idsubtipo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="habitacion" class="Hiber1.Habitacion" fetch="select">
+            <column name="idhabit" not-null="true" />
+        </many-to-one>
+        <many-to-one name="reservacion" class="Hiber1.Reservacion" fetch="select">
+            <column name="idres" not-null="true" />
+        </many-to-one>
+        <property name="fechaocup" type="date">
+            <column name="fechaocup" length="10" />
+        </property>
+        <property name="fechadesoc" type="date">
+            <column name="fechadesoc" length="10" />
+        </property>
+        <property name="feyhocheckin" type="timestamp">
+            <column name="feyhocheckin" length="19" />
+        </property>
+        <property name="feyhocheckout" type="timestamp">
+            <column name="feyhocheckout" length="19" />
+        </property>
+        <property name="subtotalhosp" type="java.lang.Float">
+            <column name="subtotalhosp" precision="15" scale="3" />
+        </property>
+        <property name="subtotconsum" type="java.lang.Float">
+            <column name="subtotconsum" precision="15" scale="3" />
+        </property>
+        <property name="montoabonado" type="java.lang.Float">
+            <column name="montoabonado" precision="15" scale="3" />
+        </property>
+        <property name="escorta" type="java.lang.Character">
+            <column name="escorta" length="1" />
+        </property>
+        <set name="cliexsubs" inverse="true">
+            <key>
+                <column name="idsubres" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Cliexsub" />
+        </set>
+        <set name="stockyservxsubres" inverse="true">
+            <key>
+                <column name="idsubres" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Stockyservxsubre" />
+        </set>
+        <set name="subresxmuls" inverse="true">
+            <key>
+                <column name="idsubres" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Subresxmul" />
+        </set>
+    </class>
+</hibernate-mapping>

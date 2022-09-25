@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Cliente" table="cliente" catalog="hotel">
+        <id name="idcli" type="int">
+            <column name="idcli" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="pais" class="Hiber1.Pais" fetch="select">
+            <column name="idpais" />
+        </many-to-one>
+        <many-to-one name="profesion" class="Hiber1.Profesion" fetch="select">
+            <column name="idprof" />
+        </many-to-one>
+        <many-to-one name="tipodocumento" class="Hiber1.Tipodocumento" fetch="select">
+            <column name="idtipodoc" not-null="true" />
+        </many-to-one>
+        <many-to-one name="empresa" class="Hiber1.Empresa" fetch="select">
+            <column name="idempresa" />
+        </many-to-one>
+        <property name="doc" type="string">
+            <column name="doc" length="30" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="30" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="apellido" length="30" />
+        </property>
+        <property name="ruc" type="string">
+            <column name="ruc" length="30" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="60" />
+        </property>
+        <property name="celular" type="string">
+            <column name="celular" length="60" />
+        </property>
+        <property name="fechanac" type="date">
+            <column name="fechanac" length="10" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="60" />
+        </property>
+        <property name="estitular" type="java.lang.Character">
+            <column name="estitular" length="1" />
+        </property>
+        <property name="nrochapa" type="string">
+            <column name="nrochapa" length="15" />
+        </property>
+        <property name="obs" type="string">
+            <column name="obs" length="60" />
+        </property>
+        <set name="actividads" inverse="true">
+            <key>
+                <column name="idcli" />
+            </key>
+            <one-to-many class="Hiber1.Actividad" />
+        </set>
+        <set name="facturas" inverse="true">
+            <key>
+                <column name="idcli" />
+            </key>
+            <one-to-many class="Hiber1.Factura" />
+        </set>
+        <set name="cliexsubs" inverse="true">
+            <key>
+                <column name="idcli" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Cliexsub" />
+        </set>
+        <set name="reservacions" inverse="true">
+            <key>
+                <column name="idcli" not-null="true" />
+            </key>
+            <one-to-many class="Hiber1.Reservacion" />
+        </set>
+        <set name="movcajas" inverse="true">
+            <key>
+                <column name="idcli" />
+            </key>
+            <one-to-many class="Hiber1.Movcaja" />
+        </set>
+    </class>
+</hibernate-mapping>

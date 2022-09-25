@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2012 14:16:07 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Hiber1.Banco" table="banco" catalog="hotel">
+        <id name="idbanco" type="int">
+            <column name="idbanco" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombrebanco" type="string">
+            <column name="nombrebanco" length="30" />
+        </property>
+        <property name="direccionban" type="string">
+            <column name="direccionban" length="60" />
+        </property>
+        <property name="telefban" type="string">
+            <column name="telefban" length="60" />
+        </property>
+        <set name="documentoses" inverse="true">
+            <key>
+                <column name="idbanco" />
+            </key>
+            <one-to-many class="Hiber1.Documentos" />
+        </set>
+    </class>
+</hibernate-mapping>
